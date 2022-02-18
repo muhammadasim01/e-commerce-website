@@ -1,0 +1,76 @@
+body {
+  background-color: rgb(27, 26, 26);
+}
+.navutils {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+.nav {
+  width: 27rem;
+}
+.nav2 {
+  width: 23rem;
+}
+.navutils:hover {
+  color: blanchedalmond;
+}
+.navutil {
+  text-decoration: none;
+  color: #fff;
+}
+.navutil:hover {
+  color: #fff;
+}
+.navlogo {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  margin-right: 1.3rem;
+}
+.rightnav {
+  width: 10rem;
+}
+.rightnav2 {
+  width: 7rem;
+}
+.cardimg {
+  transition: all 0.5s ease-in-out;
+  min-height: 2.8rem;
+}
+.cartPhoto {
+  width: 3rem;
+  height: 4rem;
+  align-self: center;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cartClose {
+  border: none;
+  background: none;
+  align-self: flex-end;
+}
+.cartClose:hover {
+  border: none;
+  background: red;
+  color: white;
+}
+.inc {
+  border: none;
+  background: none;
+  /* outline: none; */
+  font-size: 1rem;
+}
+.inc:hover {
+  border: none;
+  background: rgb(49, 100, 211);
+  color: white;
+}
+.thirdColoumn {
+  /* width: 4rem; */
+  align-self: flex-end;
+  /* border: 1px solid black; */
+  padding: 2px;
+  /* width: 5rem; */
+}
