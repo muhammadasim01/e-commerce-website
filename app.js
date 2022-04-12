@@ -14,7 +14,7 @@ require("./models/conn");
 const app = express();
 // app.use(fileUpload());
 app.use("/uploads", express.static("uploads"));
-app.use(express.static(path.join(__dirname, "../Client/build")));
+app.use(express.static(path.join(__dirname, "./Client/build")));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
