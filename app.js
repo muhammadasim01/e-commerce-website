@@ -1,3 +1,4 @@
+const env = require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
@@ -12,9 +13,14 @@ const User = require("./models/user");
 require("./models/conn");
 
 const app = express();
-// app.use(fileUpload());
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static(path.join(__dirname, "./Client/build")));
+} else {
+  app.get("/", (req, res) => {
+    res.send("this is root from development side");
+  });
+}
 app.use("/uploads", express.static("uploads"));
-app.use(express.static(path.join(__dirname, "./Client/build")));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
@@ -22,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("home page");
+  res.send(" page");
 });
 app.post("/add", upload.single("Photo"), async (req, res) => {
   if (req.file) {
@@ -81,6 +87,6 @@ app.post("registerdata", async (req, res) => {
   console.log(req.body);
 });
 
-app.listen("8000", () => {
-  console.log("listening to the port 8000");
+app.listen(process.env.PORT, () => {
+  console.log(`listening to the port ${process.env.PORT}`);
 });

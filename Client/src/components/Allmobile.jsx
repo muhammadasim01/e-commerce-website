@@ -9,7 +9,7 @@ export const Allmobile = () => {
     fetchProduct();
   }, []);
   const fetchProduct = async () => {
-    var products = await axios.get("http://localhost:8000/allmobiles");
+    var products = await axios.get("/allmobiles");
     const data = await products.data;
     setmobiles(data);
   };

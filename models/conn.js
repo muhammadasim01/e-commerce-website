@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const uri =
-  "mongodb+srv://asim:1234@cluster0.3jjse.mongodb.net/ecommerce?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
 mongoose
   .connect(uri)
   .then(() => {
