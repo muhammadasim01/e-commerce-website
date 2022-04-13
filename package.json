@@ -4,8 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Client && npm run build --prefix Client"
+    "client-install": "cd front_end && npm install",
+    "start": "node index",
+    "server": "nodemon index",
+    "client": "cd front_end && npm start",
+    "dev": "concurrently \" npm run server  \" \" npm run client\"",
+    "heroku-postbuild": "cd front_end && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
