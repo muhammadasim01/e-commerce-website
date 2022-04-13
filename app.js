@@ -11,7 +11,7 @@ const product = require("./models/product");
 const Cart = require("./models/cart");
 const User = require("./models/user");
 require("./models/conn");
-
+let port = process.env.PORT || 8000;
 const app = express();
 if (process.env.NODE_ENV == "production") {
   app.use(express.static(path.join(__dirname, "./Client/build")));
@@ -90,6 +90,6 @@ app.post("registerdata", async (req, res) => {
   console.log(req.body);
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`listening to the port ${process.env.PORT}`);
+app.listen(port, () => {
+  console.log(`listening to the port ${port}`);
 });
