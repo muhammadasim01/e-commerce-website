@@ -5,7 +5,7 @@ import axios from "axios";
 export const Product = (props) => {
   const cartFuction = async (key) => {
     const Object = { id: key };
-    const response = await axios.post("http://localhost:8000/cart", Object);
+    const response = await axios.post("/cart", Object);
     const data = await response.data;
   };
   return (

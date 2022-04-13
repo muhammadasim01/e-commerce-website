@@ -9,7 +9,7 @@ export const Huawei = () => {
     fetchProduct();
   }, []);
   const fetchProduct = async () => {
-    var products = await axios.get("http://localhost:8000/huawei");
+    var products = await axios.get("/huawei");
     const data = await products.data;
     setmobiles(data);
     // console.log(data[0]);
@@ -27,7 +27,7 @@ export const Huawei = () => {
                   <Product
                     key={product._id}
                     id={product._id}
-                    image={"http://localhost:8000/uploads/" + product.Photo}
+                    image={"/uploads/" + product.Photo}
                     brandname={product.BrandName}
                     modelname={product.ModelName}
                     price={product.Price}

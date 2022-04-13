@@ -13,7 +13,7 @@ function OffCanvasExample({ name, ...props }) {
     fetchCartProduct();
   }, []);
   const fetchCartProduct = async () => {
-    const response = await axios.get("http://localhost:8000/getcart");
+    const response = await axios.get("/getcart");
     const data = response.data;
     setCart(data);
     console.log(data);
