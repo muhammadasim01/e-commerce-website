@@ -8,8 +8,8 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "cd Client && npm start",
-    "dev": "concurrently \" npm run server  \" \" npm run client\"",
-    "heroku-postbuild": "cd Client && npm install && npm run build"
+    "dev": "concurrently \" npm run start  \" \" npm run client\"",
+    "heroku-postbuild": "cd Client && npm install && npm run build && npm run dev"
   },
   "keywords": [],
   "author": "",
