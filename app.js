@@ -15,9 +15,6 @@ let port = process.env.PORT || 8000;
 const app = express();
 if (process.env.NODE_ENV == "production") {
   app.use(express.static(path.join(__dirname, "./Client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "Client", "build", "index.html"));
-  });
 } else {
   app.get("/", (req, res) => {
     res.send("this is root from development server");
