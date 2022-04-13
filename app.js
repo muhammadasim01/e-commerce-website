@@ -20,7 +20,7 @@ if (process.env.NODE_ENV == "production") {
   });
 } else {
   app.get("/", (req, res) => {
-    res.send("this is root from development server");
+    res.send("this is root from development serve");
   });
 }
 app.use("/uploads", express.static("uploads"));
