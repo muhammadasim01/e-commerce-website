@@ -4,12 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "client-install": "cd front_end && npm install",
-    "start": "node index",
-    "server": "nodemon index",
-    "client": "cd front_end && npm start",
+    "client-install": "cd Client && npm install",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "cd Client && npm start",
     "dev": "concurrently \" npm run server  \" \" npm run client\"",
-    "heroku-postbuild": "cd front_end && npm install && npm run build"
+    "heroku-postbuild": "cd Client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
