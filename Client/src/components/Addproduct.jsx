@@ -37,6 +37,12 @@ export const Addproduct = () => {
       .catch((err) => {
         console.log(err);
       });
+    setstate({
+      BrandName: "",
+      ModelName: "",
+      Price: 0,
+    });
+    setphoto("");
   };
   return (
     <>
