@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const upload = require("../helpers/helper");
-const Cart = require("./models/cart");
+const Cart = require("../models/cart");
 
 const {
   addUser,
