@@ -4,7 +4,7 @@ const Admin = () => {
   return (
     <>
       <Navbar2 />
-      <h1>admin</h1>
+      <h1>Admin</h1>
     </>
   );
 };
