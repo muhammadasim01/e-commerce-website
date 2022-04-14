@@ -17,7 +17,7 @@ export const Allmobile = () => {
     <div className="text-light">
       <Navbar1 />
       <div className="container">
-        <h1 className="text-center">All Mobiles </h1>
+        <h1 className="text-center">All Mobile </h1>
         <div className="cardContainer d-flex flex-wrap justify-content-center text-center">
           {mobiles
             ? Array.from(mobiles).map((product, index) => {
