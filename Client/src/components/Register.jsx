@@ -17,6 +17,9 @@ export const Register = () => {
   };
   const registerUser = async (e) => {
     e.preventDefault();
+    const response = axios.post("/registeruser", Register);
+    const data = response.data;
+    console.log(data);
     setRegister({
       Fname: "",
       Lname: "",
@@ -24,9 +27,6 @@ export const Register = () => {
       Password: "",
       Cpassword: "",
     });
-    const response = axios.post("/registeruser", Register);
-    const data = response.data;
-    console.log(data);
   };
   return (
     <div className="text-light">
