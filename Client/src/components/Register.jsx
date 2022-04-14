@@ -24,7 +24,7 @@ export const Register = () => {
       Password: "",
       Cpassword: "",
     });
-    const response = axios.post("/registerdata", Register);
+    const response = axios.post("/registeruser", Register);
     const data = response.data;
     console.log(data);
   };
