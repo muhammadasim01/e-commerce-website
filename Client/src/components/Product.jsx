@@ -1,28 +1,43 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import axios from "axios";
-export const Product = (props) => {
-  const cartFuction = async (key) => {
-    const Object = { id: key };
-    const response = await axios.post("/cart", Object);
-    const data = await response.data;
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/actions/cartActions";
+
+export const Product = ({ id, image, brandname, modelname, price }) => {
+  const dispatch = useDispatch();
+  const cartFuction = (id) => {
+    dispatch(addToCart(id));
   };
+
   return (
     <div className="text-dark">
       <Card
-        style={{ width: "19.5rem", marginTop: "1rem", marginRight: "0.3rem" }}
+        style={{ marginTop: "0.2rem", marginRight: "0.2rem" }}
+        className="product"
       >
-        <Card.Img variant="top" src={props.image} className="cardimg" />
+        <Link
+          to={`/productinfo/${id}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Card.Img variant="top" src={image} className="cardimg" />
+        </Link>
         <Card.Body>
-          <Card.Title>
-            {props.brandname} {props.modelname}
-          </Card.Title>
-          <Card.Text>Rs {props.price}/-</Card.Text>
+          <Link
+            to={`/productinfo/${id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            {" "}
+            <Card.Title>
+              {brandname} {modelname}
+            </Card.Title>
+            <Card.Text>Rs {price}/-</Card.Text>
+          </Link>
           <Button
             variant="primary"
             onClick={() => {
-              cartFuction(props.id);
+              cartFuction(id);
             }}
           >
             add to cart

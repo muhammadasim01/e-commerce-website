@@ -1,9 +1,9 @@
 body {
-  background-color: rgb(27, 26, 26);
+  background-color: rgb(3, 3, 59);
 }
 .navutils {
   text-decoration: none;
-  color: blanchedalmond;
+  color: white;
 }
 .nav {
   width: 27rem;
@@ -12,7 +12,7 @@ body {
   width: 23rem;
 }
 .navutils:hover {
-  color: blanchedalmond;
+  color: white;
 }
 .navutil {
   text-decoration: none;
@@ -21,25 +21,65 @@ body {
 .navutil:hover {
   color: #fff;
 }
+.navbar1 {
+  background-color: rgb(3, 3, 59);
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+.navbar2 {
+  background-color: rgb(3, 3, 59);
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+.bottom {
+  position: absolute;
+  height: 29vh;
+  background: white;
+  bottom: 0;
+  left: 0rem;
+  right: 0;
+  z-index: 10;
+}
 .navlogo {
   font-weight: bolder;
   font-size: 1.5rem;
-  margin-right: 1.3rem;
+  margin-right: 1.9rem;
 }
 .rightnav {
-  width: 10rem;
+  width: 13rem;
 }
 .rightnav2 {
-  width: 7rem;
+  width: 9rem;
 }
 .cardimg {
-  transition: all 0.5s ease-in-out;
-  min-height: 2.8rem;
+  width: 19rem;
+  height: 12rem;
 }
 .cartPhoto {
   width: 3rem;
   height: 4rem;
   align-self: center;
+}
+
+.details {
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.productDetail {
+  /* border: 2px solid white; */
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.detail-img {
+  width: 26rem;
+  height: 26rem;
 }
 .right {
   display: flex;
@@ -55,6 +95,19 @@ body {
   border: none;
   background: red;
   color: white;
+}
+.video {
+  z-index: -1;
+  position: absolute;
+}
+.homeContainer {
+  position: relative;
+  left: 10px;
+  height: 39.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .inc {
   border: none;
@@ -73,4 +126,61 @@ body {
   /* border: 1px solid black; */
   padding: 2px;
   /* width: 5rem; */
+}
+.homeInput {
+  width: 29rem;
+}
+@media screen and (max-width: 768px) {
+  .details {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .homeContainer {
+    height: 33rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .homeContainer {
+    height: 24.6rem;
+  }
+  .homeInput {
+    width: 23rem;
+  }
+
+  .rightnav,
+  .rightnav2 {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 767px) {
+  .homeContainer {
+    height: 18rem;
+  }
+  .homeInput {
+    width: 17rem;
+  }
+}
+@media screen and (max-width: 447px) {
+  .homeContainer {
+    height: 12rem;
+  }
+  .homehead {
+    font-size: smaller;
+  }
+  .hometext {
+    font-size: 0.6rem;
+  }
+  .cardimg {
+    width: 15rem;
+    height: 10rem;
+  }
+}
+@media screen and (max-width: 364px) {
+  .homebtn {
+    font-size: 0.6rem;
+  }
+  .homeInput {
+    width: 12rem;
+  }
 }

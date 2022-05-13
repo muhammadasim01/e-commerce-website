@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { Navbar1 } from "./Navbar1";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { UserRegistration } from "../redux/actions/useractions";
 
 export const Register = () => {
+  const dispatch = useDispatch();
+  const { response } = useSelector((state) => state.UserRegistrationReducer);
+  console.log(response);
   const [Register, setRegister] = useState({
     Fname: "",
     Lname: "",
@@ -17,9 +21,7 @@ export const Register = () => {
   };
   const registerUser = async (e) => {
     e.preventDefault();
-    const response = axios.post("/registeruser", Register);
-    const data = response.data;
-    console.log(data);
+    dispatch(UserRegistration(Register));
     setRegister({
       Fname: "",
       Lname: "",
@@ -31,9 +33,11 @@ export const Register = () => {
   return (
     <div className="text-light">
       <Navbar1 />
-      <div className="container">
+      <div className="container" style={{ position: "relative", top: "65px" }}>
+        <p className="display-2 text-center">User Registration</p>
+
         <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>First Name</Form.Label>
             <Form.Control
               type="email"
@@ -43,7 +47,7 @@ export const Register = () => {
               onChange={eventHandler}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicTextt">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="email"
@@ -74,7 +78,7 @@ export const Register = () => {
               onChange={eventHandler}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3" controlId="formBasicCPassword">
             <Form.Label> Confirm Password</Form.Label>
             <Form.Control
               type="password"
@@ -88,6 +92,9 @@ export const Register = () => {
           <Button variant="primary" type="submit" onClick={registerUser}>
             Sign In
           </Button>
+          <br />
+          <br />
+          <br />
         </Form>
       </div>
     </div>

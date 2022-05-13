@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Navbar2 } from "./Navbar2";
@@ -6,6 +8,11 @@ import { Navbar2 } from "./Navbar2";
 import axios from "axios";
 
 export const Addproduct = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = sessionStorage.getItem("adminToken");
+    if (!token) navigate("/admin/login");
+  }, []);
   const [Photo, setphoto] = useState("");
   const [state, setstate] = useState({
     BrandName: "",
@@ -30,7 +37,7 @@ export const Addproduct = () => {
 
     e.preventDefault();
     axios
-      .post("/add", formdata)
+      .post("http://localhost:8000/add", formdata)
       .then((res) => {
         console.log(res);
       })
@@ -47,7 +54,11 @@ export const Addproduct = () => {
   return (
     <>
       <Navbar2 />
-      <div className="container">
+      <div
+        className="container text-light"
+        style={{ position: "relative", top: "65px" }}
+      >
+        <p className="display-2 text-center">Add product</p>
         <Form method="POST" encType="multipart/form-data">
           <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Brand Name</Form.Label>

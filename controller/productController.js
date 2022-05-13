@@ -1,8 +1,9 @@
 const product = require("../models/product");
+const mongoose = require("mongoose");
 
-const addUser = async (req, res) => {
+const addProduct = async (req, res) => {
   if (req.file) {
-    res.status(200).send("added");
+    res.status(200);
   } else {
     res.status(404).send("not added");
   }
@@ -16,7 +17,8 @@ const addUser = async (req, res) => {
     Price,
     Photo,
   });
-  await p1.save();
+  const productadd = await p1.save();
+  if (productadd) res.send("product added successfully");
 };
 
 const showAllMobiles = async (req, res) => {
@@ -26,27 +28,55 @@ const showAllMobiles = async (req, res) => {
 
 const showSamsungMobiles = async (req, res) => {
   const products = await product.find({
-    BrandName: "Samsung",
+    BrandName: { $in: ["Samsung", "samsung"] },
   });
   res.send(products);
 };
 
 const showHuaweiMobile = async (req, res) => {
-  const products = await product.find({ BrandName: "huawei" });
+  const products = await product.find({
+    BrandName: { $in: ["Huawei", "huawei"] },
+  });
   res.send(products);
 };
 
 const showIphoneMobile = async (req, res) => {
   const products = await product.find({
-    BrandName: "iphone",
+    BrandName: { $in: ["Iphone", "iphone", "I phone", "i phone"] },
   });
   res.send(products);
 };
 
+const showOthersMobile = async (req, res) => {
+  const products = await product.find({
+    BrandName: {
+      $nin: [
+        "Huawei",
+        "huawei",
+        "Iphone",
+        "iphone",
+        "I phone",
+        "i phone",
+        "Samsung",
+        "samsung",
+      ],
+    },
+  });
+  res.send(products);
+};
+
+const getProductDetails = async (req, res) => {
+  const { id } = req.params;
+  const singleProduct = await product.findById({ _id: id });
+  res.send(singleProduct);
+};
+
 module.exports = {
-  addUser,
+  addProduct,
   showAllMobiles,
   showSamsungMobiles,
   showHuaweiMobile,
   showIphoneMobile,
+  getProductDetails,
+  showOthersMobile,
 };

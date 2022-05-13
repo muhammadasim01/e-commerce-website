@@ -4,18 +4,21 @@ const upload = require("../helpers/helper");
 const Cart = require("../models/cart");
 
 const {
-  addUser,
+  addProduct,
   showAllMobiles,
   showSamsungMobiles,
   showHuaweiMobile,
   showIphoneMobile,
+  getProductDetails,
+  showOthersMobile,
 } = require("../controller/productController");
 
 router.get("/", (req, res) => {
   res.send(" page");
 });
+router.get("/productdetail/:id", getProductDetails);
 
-router.post("/add", upload.single("Photo"), addUser);
+router.post("/add", upload.single("Photo"), addProduct);
 
 router.get("/allmobiles", showAllMobiles);
 
@@ -25,15 +28,6 @@ router.get("/huawei", showHuaweiMobile);
 
 router.get("/iphone", showIphoneMobile);
 
-router.get("/getcart", async (req, res) => {
-  const products = await Cart.find();
-  res.send(products);
-});
-router.post("/cart", async (req, res) => {
-  const p2 = await product.findById({ _id: req.body.id });
-  const { _id, BrandName, ModelName, Price, Photo } = p2;
-  const c1 = await new Cart({ _id, BrandName, ModelName, Price, Photo });
-  await c1.save();
-});
+router.get("/others", showOthersMobile);
 
 module.exports = router;
