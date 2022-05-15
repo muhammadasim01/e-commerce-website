@@ -4,7 +4,7 @@ import video from "../videos/mobilevideo.mp4";
 
 const Home = () => {
   return (
-    <div className="text-light">
+    <div className="text-light maincontainer">
       <Navbar1 />
       <div
         className="container videoContainer"

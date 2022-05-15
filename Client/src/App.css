@@ -100,6 +100,10 @@ body {
   z-index: -1;
   position: absolute;
 }
+.maincontainer {
+}
+.videoContainer {
+}
 .homeContainer {
   position: relative;
   left: 10px;
@@ -182,5 +186,11 @@ body {
   }
   .homeInput {
     width: 12rem;
+  }
+  .videoContainer {
+    width: 309px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
