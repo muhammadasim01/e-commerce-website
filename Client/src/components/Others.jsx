@@ -22,7 +22,7 @@ export const Others = () => {
                 <Product
                   key={product._id}
                   id={product._id}
-                  image={"http://localhost:8000/uploads/" + product.Photo}
+                  image={"/uploads/" + product.Photo}
                   brandname={product.BrandName}
                   modelname={product.ModelName}
                   price={product.Price}

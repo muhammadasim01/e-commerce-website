@@ -7,7 +7,7 @@ export const UserLogin =
   async (dispatch) => {
     dispatch({ type: userActions.USER_LOGIN_REQUEST });
     try {
-      const response = await axios.post("http://localhost:8000/login", {
+      const response = await axios.post("/login", {
         Email,
         Password,
       });
@@ -29,7 +29,7 @@ export const UserLogout = () => (dispatch) => {
 export const UserRegistration = (obj) => async (dispatch) => {
   dispatch({ type: userActions.USER_REGISTRATION_REQUEST });
   try {
-    const res = await axios.post("http://localhost:8000/registeruser", obj);
+    const res = await axios.post("/registeruser", obj);
     const response = await res.data;
     dispatch({
       type: userActions.USER_REGISTRATION_SUCCESS,
@@ -46,7 +46,7 @@ export const UserRegistration = (obj) => async (dispatch) => {
 export const UserDetails = () => async (dispatch) => {
   dispatch({ type: userActions.USER_DETAILS_REQUEST });
   try {
-    const res = await axios.get("http://localhost:8000/allusers");
+    const res = await axios.get("/allusers");
     const response = await res.data;
     dispatch({ type: userActions.USER_DETAILS_SUCCESS, payload: response });
   } catch (error) {

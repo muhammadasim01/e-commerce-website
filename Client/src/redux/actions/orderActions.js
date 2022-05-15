@@ -6,7 +6,7 @@ export const placeOrder = (token, total) => async (dispatch, getstate) => {
     dispatch({ type: actionTypes.PLACE_ORDER_REQUEST });
     const cartItem = getstate().CartReducer.cartItem;
     const jwtToken = localStorage.getItem("userinfo");
-    const response = await axios.post("http://localhost:8000/placeorder", {
+    const response = await axios.post("/placeorder", {
       token,
       cartItem,
       total,
@@ -22,7 +22,7 @@ export const placeOrder = (token, total) => async (dispatch, getstate) => {
 export const getAllOrders = () => async (dispatch) => {
   try {
     dispatch({ type: actionTypes.GET_ALL_ORDERS_REQUEST });
-    const res = await axios.get("http://localhost:8000/allorders");
+    const res = await axios.get("/allorders");
     const response = await res.data;
     dispatch({ type: actionTypes.GET_ALL_ORDERS_SUCCESS, payload: response });
   } catch (error) {
@@ -33,7 +33,7 @@ export const getAllOrders = () => async (dispatch) => {
 export const orderDelivered = (id) => async (dispatch) => {
   try {
     dispatch({ type: actionTypes.ORDER_DELIVERED_REQUEST });
-    const res = await axios.put(`http://localhost:8000/orderdelivered/${id}`);
+    const res = await axios.put(`/orderdelivered/${id}`);
     const response = await res.data;
     dispatch({ type: actionTypes.ORDER_DELIVERED_SUCCESS, payload: response });
   } catch (error) {

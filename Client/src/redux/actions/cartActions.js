@@ -2,7 +2,7 @@ import * as actionTypes from "../constants/cartConstants";
 import axios from "axios";
 
 export const addToCart = (id) => async (dispatch, getstate) => {
-  const res = await axios.get(`http://localhost:8000/productdetail/${id}`);
+  const res = await axios.get(`/productdetail/${id}`);
   const response = await res.data;
   dispatch({ type: actionTypes.ADD_TO_CART, payload: response });
   localStorage.setItem("cart", JSON.stringify(getstate().CartReducer.cartItem));

@@ -12,10 +12,7 @@ const ResetPassword = () => {
   const [data, setData] = useState({ Password: "", Cpassword: "" });
   const changepassword = async (e) => {
     e.preventDefault();
-    const res = await axios.post(
-      `http://localhost:8000/create/${id}/${token}`,
-      data
-    );
+    const res = await axios.post(`/create/${id}/${token}`, data);
     const response = await res.data;
     if (response === "password updated successfully") {
       navigate("/login");

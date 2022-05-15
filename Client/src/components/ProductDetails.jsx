@@ -39,7 +39,7 @@ const ProductDetails = () => {
             <div className="details">
               <div className="productimg">
                 <img
-                  src={`http://localhost:8000/uploads/${product.Photo}`}
+                  src={`/uploads/${product.Photo}`}
                   alt="product detail img"
                   className="img-fluid detail-img container"
                 />

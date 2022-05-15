@@ -11,10 +11,7 @@ export const Adminlogin = () => {
   const [loginn, setLogin] = useState({ Email: "", Password: "" });
   const loginUser = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "http://localhost:8000/adminLogin",
-      loginn
-    );
+    const response = await axios.post("/adminLogin", loginn);
     const data = await response.data;
     if (data.state === true) {
       sessionStorage.setItem("adminToken", JSON.stringify(data.token));

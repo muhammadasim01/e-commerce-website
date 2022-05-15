@@ -37,7 +37,7 @@ export const Addproduct = () => {
 
     e.preventDefault();
     axios
-      .post("http://localhost:8000/add", formdata)
+      .post("/add", formdata)
       .then((res) => {
         console.log(res);
       })

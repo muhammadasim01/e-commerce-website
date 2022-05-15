@@ -11,10 +11,7 @@ const AdminResetPassword = () => {
   const [data, setData] = useState({ Password: "", Cpassword: "" });
   const changepassword = async (e) => {
     e.preventDefault();
-    const res = await axios.post(
-      `http://localhost:8000/admin/create/${id}/${token}`,
-      data
-    );
+    const res = await axios.post(`/admin/create/${id}/${token}`, data);
     const response = await res.data;
     if (response === "password updated successfully") {
       navigate("/admin/login");

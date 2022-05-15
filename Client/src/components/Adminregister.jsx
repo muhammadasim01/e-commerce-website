@@ -17,10 +17,7 @@ export const Adminregister = () => {
   };
   const registerUser = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "http://localhost:8000/adminRegister",
-      Register
-    );
+    const response = await axios.post("/adminRegister", Register);
     const data = await response.data;
     console.log(data);
     setRegister({

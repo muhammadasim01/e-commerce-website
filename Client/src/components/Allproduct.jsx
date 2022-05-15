@@ -7,7 +7,7 @@ import axios from "axios";
 export const Allproduct = () => {
   const [mobiles, setmobiles] = useState([]);
   const fetchProduct = async () => {
-    var products = await axios.get("http://localhost:8000/allmobiles");
+    var products = await axios.get("/allmobiles");
     const data = await products.data;
     setmobiles(data);
   };
@@ -38,7 +38,7 @@ export const Allproduct = () => {
             <Card
               key={product._id}
               id={product._id}
-              image={"http://localhost:8000/uploads/" + product.Photo}
+              image={"/uploads/" + product.Photo}
               brandname={product.BrandName}
               modelname={product.ModelName}
               price={product.Price}

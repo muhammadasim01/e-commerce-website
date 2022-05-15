@@ -8,10 +8,7 @@ const Forgot = () => {
   const [email, setEmail] = useState({ Email: "" });
   const submitEmail = async (e) => {
     e.preventDefault();
-    const { response } = await axios.post(
-      "http://localhost:8000/forgot",
-      email
-    );
+    const { response } = await axios.post("/forgot", email);
     setEmail({ email: "" });
   };
   return (

@@ -11,7 +11,7 @@ export const Card2 = (props) => {
       <Card style={{ width: "17rem" }} className="d-flex flex-row">
         <Card.Img
           variant="top"
-          src={"http://localhost:8000/uploads/" + props.photo}
+          src={"/uploads/" + props.photo}
           className="cartPhoto"
         />
         <Card.Body className="">

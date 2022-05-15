@@ -4,7 +4,7 @@ import axios from "axios";
 export const addProductAction = (obj) => async (dispatch) => {
   try {
     dispatch({ type: productAction.PRODUCT_ADD_REQUEST });
-    const res = await axios.post("http://localhost:8000/add", obj);
+    const res = await axios.post("/add", obj);
     const response = await res.data;
     dispatch({ type: productAction.PRODUCT_ADD_SUCCESS, payload: response });
   } catch (error) {
@@ -15,7 +15,7 @@ export const addProductAction = (obj) => async (dispatch) => {
 export const getProductDetailAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: productAction.PRODUCT_DETAIL_REQUEST });
-    const res = await axios.get(`http://localhost:8000/productdetail/${id}`);
+    const res = await axios.get(`/productdetail/${id}`);
     const response = await res.data;
     dispatch({ type: productAction.PRODUCT_DETAIL_SUCCESS, payload: response });
   } catch (error) {
@@ -30,7 +30,7 @@ export const getAllMobilesAction = () => async (dispatch) => {
   try {
     dispatch({ type: productAction.GET_ALL_PRODUCT_REQUEST });
 
-    const res = await axios.get("http://localhost:8000/allmobiles");
+    const res = await axios.get("/allmobiles");
     const response = await res.data;
     dispatch({
       type: productAction.GET_ALL_PRODUCT_SUCCESS,
@@ -48,7 +48,7 @@ export const getSamsungMobilesAction = () => async (dispatch) => {
   try {
     dispatch({ type: productAction.GET_SAMSUNG_PRODUCT_REQUEST });
 
-    const res = await axios.get("http://localhost:8000/samsung");
+    const res = await axios.get("/samsung");
     const response = await res.data;
     dispatch({
       type: productAction.GET_SAMSUNG_PRODUCT_SUCCESS,
@@ -65,7 +65,7 @@ export const getSamsungMobilesAction = () => async (dispatch) => {
 export const getHuaweiMobilesAction = () => async (dispatch) => {
   try {
     dispatch({ type: productAction.GET_HUAWEI_PRODUCT_REQUEST });
-    const res = await axios.get("http://localhost:8000/huawei");
+    const res = await axios.get("/huawei");
     const response = await res.data;
     dispatch({
       type: productAction.GET_HUAWEI_PRODUCT_SUCCESS,
@@ -83,7 +83,7 @@ export const getIphoneMobilesAction = () => async (dispatch) => {
   try {
     dispatch({ type: productAction.GET_IPHONE_PRODUCT_REQUEST });
 
-    const res = await axios.get("http://localhost:8000/iphone");
+    const res = await axios.get("/iphone");
     const response = await res.data;
     dispatch({
       type: productAction.GET_IPHONE_PRODUCT_SUCCESS,
@@ -101,7 +101,7 @@ export const getOthersMobilesAction = () => async (dispatch) => {
   try {
     dispatch({ type: productAction.GET_OTHERS_PRODUCT_REQUEST });
 
-    const res = await axios.get("http://localhost:8000/others");
+    const res = await axios.get("/others");
     const response = await res.data;
     dispatch({
       type: productAction.GET_OTHERS_PRODUCT_SUCCESS,
