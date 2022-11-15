@@ -6,14 +6,14 @@ const MailSend = async (email, link) => {
     secure: false,
     port: 465,
     auth: {
-      user: "muhammadasim4515@gmail.com",
-      pass: "Youtube4515@@",
+      user: process.env.GMAIL,
+      pass: process.env.GMAIL_PASSWORD,
     },
     // tls: { rejectUnauthorized: false },
   });
   await transport.sendMail(
     {
-      from: "muhammadasim4515@gmail.com",
+      from: process.env.GMAIL,
       to: email,
       subject: "PASSWORD RESET IN MOBILE STORE APP",
       text: link,
